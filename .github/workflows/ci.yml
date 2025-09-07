@@ -1,0 +1,42 @@
+---
+# CI workflow for pytest-test-suite-minimizer-z3 plugin
+# Runs tests in Docker container with Z3 theorem prover installed
+name: CI
+
+"on":
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.12-slim
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          apt-get install -y git
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run example tests
+        run: |
+          pytest --cov=example example/tests --cov-context=test
+
+      - name: Test plugin functionality
+        run: |
+          pytest --cov=example example/tests --cov-context=test --minimize-tests
+
+      - name: Verify Z3 installation
+        run: |
+          python -c "import z3; print('Z3 version:', z3.get_version_string())"
