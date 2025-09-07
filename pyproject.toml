@@ -3,7 +3,7 @@ name = "pytest-test-suite-minimizer-z3"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "coverage>=7.10.6",
     "pytest>=8.4.2",
