@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include pytest_test_suite_minimizer_z3 *.py
+recursive-exclude tests *
+recursive-exclude example *
+exclude .coverage
+exclude .gitignore
+exclude .python-version
+exclude pytest.ini
+exclude uv.lock
+exclude run_tests.sh
+exclude test.sh
+exclude main.py

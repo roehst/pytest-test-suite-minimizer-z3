@@ -4,12 +4,37 @@ version = "0.1.0"
 description = "A pytest plugin that uses Z3 theorem prover to minimize test suites while maintaining coverage"
 readme = "README.md"
 requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "roehst", email = "roehst@users.noreply.github.com"}
+]
+keywords = ["pytest", "testing", "z3", "optimization", "coverage", "minimization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+]
 dependencies = [
     "coverage>=7.10.6",
     "pytest>=8.4.2",
     "pytest-cov>=6.3.0",
     "z3-solver>=4.15.3.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/roehst/pytest-test-suite-minimizer-z3"
+Repository = "https://github.com/roehst/pytest-test-suite-minimizer-z3"
+Issues = "https://github.com/roehst/pytest-test-suite-minimizer-z3/issues"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["pytest_test_suite_minimizer_z3"]

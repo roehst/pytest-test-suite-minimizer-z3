@@ -134,6 +134,64 @@ The test suite validates:
 - Error handling for various failure scenarios
 - Integration with real pytest test runs
 
+## Publishing to PyPI
+
+This package is configured for publishing to PyPI. To publish a new version:
+
+### Prerequisites
+
+1. Install build and publishing tools:
+   ```bash
+   pip install build twine
+   ```
+
+2. Configure PyPI credentials (one-time setup):
+   ```bash
+   # For PyPI
+   twine configure
+
+   # Or set environment variables
+   export TWINE_USERNAME=__token__
+   export TWINE_PASSWORD=your_pypi_token
+   ```
+
+### Publishing Process
+
+1. Update the version in `pyproject.toml` and `pytest_test_suite_minimizer_z3/__init__.py`
+
+2. Build the distribution packages:
+   ```bash
+   python -m build --no-isolation
+   ```
+
+3. Check the built packages:
+   ```bash
+   twine check dist/*
+   ```
+
+4. Upload to PyPI (test first):
+   ```bash
+   # Upload to Test PyPI first
+   twine upload --repository testpypi dist/*
+
+   # If everything looks good, upload to PyPI
+   twine upload dist/*
+   ```
+
+### Automated Publishing
+
+For automated publishing via GitHub Actions, ensure you have:
+- A PyPI API token stored as `PYPI_API_TOKEN` in GitHub Secrets
+- Version tags following semantic versioning (e.g., `v0.1.0`)
+
+The package includes all necessary metadata for PyPI:
+- Package description and README
+- Author information and license
+- Project URLs (homepage, repository, issues)
+- Python version requirements
+- Dependencies and entry points
+- Proper classifiers for discoverability
+
 ## License
 
-This project is open source. See the license file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
