@@ -1,5 +1,5 @@
 [project]
-name = "pytest-test-minimizer-z3"
+name = "pytest-test-suite-minimizer-z3"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
