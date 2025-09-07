@@ -8,3 +8,12 @@ wheels/
 
 # Virtual environments
 .venv
+
+# pytest and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Project specific
+minimization_results.txt
+*.log
