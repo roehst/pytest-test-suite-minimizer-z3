@@ -1,0 +1,12 @@
+[project]
+name = "pytest-test-minimizer-z3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "coverage>=7.10.6",
+    "pytest>=8.4.2",
+    "pytest-cov>=6.3.0",
+    "z3-solver>=4.15.3.0",
+]
