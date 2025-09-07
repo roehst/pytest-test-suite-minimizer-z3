@@ -1,0 +1,1 @@
+"""Test suite for pytest-test-suite-minimizer-z3 plugin."""

@@ -100,7 +100,39 @@ To contribute to this project:
 1. Clone the repository
 2. Install in development mode: `pip install -e .`
 3. Run the example: `pytest --cov=example example/tests --cov-context=test --minimize-tests`
-4. Run tests: `pytest` (when test suite is added)
+4. Run tests: `./run_tests.sh` or `pytest tests/`
+
+### Test Suite
+
+The project includes a comprehensive test suite covering:
+
+- **Unit Tests**: Test individual components like the plugin, analyzer, and Z3 mock
+- **Integration Tests**: Test the plugin working with real pytest sessions
+- **Edge Case Tests**: Test error handling and boundary conditions
+
+To run the tests:
+
+```bash
+# Run all tests
+./run_tests.sh
+
+# Run specific test categories
+pytest tests/test_plugin.py -v          # Plugin functionality
+pytest tests/test_analyzer.py -v        # Analyzer logic
+pytest tests/test_z3_mock.py -v         # Z3 mock implementation
+pytest tests/test_integration.py -v     # Integration tests
+
+# Run with coverage
+pytest tests/ --cov=pytest_test_suite_minimizer_z3 --cov-report=term-missing
+```
+
+The test suite validates:
+- Command-line option registration and parsing
+- Plugin activation and configuration
+- Coverage data analysis (with and without Z3)
+- Output formatting and file generation
+- Error handling for various failure scenarios
+- Integration with real pytest test runs
 
 ## License
 

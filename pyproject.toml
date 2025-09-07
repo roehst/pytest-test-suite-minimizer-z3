@@ -11,5 +11,8 @@ dependencies = [
     "z3-solver>=4.15.3.0",
 ]
 
+[tool.setuptools]
+packages = ["pytest_test_suite_minimizer_z3"]
+
 [project.entry-points.pytest11]
 test_suite_minimizer_z3 = "pytest_test_suite_minimizer_z3.plugin"
